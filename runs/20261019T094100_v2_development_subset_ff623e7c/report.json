@@ -1,0 +1,3510 @@
+{
+  "run_id": "ff623e7c-2af8-4a35-a73c-129b4b7d93f5",
+  "split": "development",
+  "agent_version": "v2",
+  "versions": {
+    "prompt_version": "v2-73399f0449",
+    "dataset_version": "long-brand-answers-50-v4",
+    "evaluator_version": "sentence-spans-and-labels-v4",
+    "fact_version": "speaker-catalogue-v4"
+  },
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "settings": {
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "temperature": 0.0,
+    "thinking_level": "low",
+    "max_concurrent_requests": 3,
+    "request_timeout_s": 15.0,
+    "max_attempts_per_turn": 2,
+    "retry_delay_s": 2.0,
+    "retry_delay_cap_s": 10.0,
+    "max_model_turns": 3,
+    "requests_per_minute": 25.0,
+    "tokens_per_minute": 7500.0,
+    "answer_subset": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10",
+      "A11",
+      "A12"
+    ]
+  },
+  "file_hashes": {
+    "answers.csv": "fa28e813ea54b4e5ea985585f22f084d826241e1182accbc27ace17066125724",
+    "brand_facts.csv": "2190d40fad2dd167ef2437956c43d595aaf2554ea673a4789b9343cb7e2936f2",
+    "development_gold.csv": "afe84cc78f304afb6a4aaa505dd7504af80fcbf8bc507806aa5ff0aab6bf4850"
+  },
+  "source_revision": null,
+  "started_at": "2026-10-19T09:41:00.631537+00:00",
+  "duration_s": 750.3,
+  "counts": {
+    "scheduled_answers": 12,
+    "terminal_answers": 12,
+    "ok_answers": 12,
+    "error_answers": 0,
+    "empty_outputs": 0,
+    "accepted_predictions": 110,
+    "error_types": {},
+    "provider_attempts": 24,
+    "peak_active_requests": 1,
+    "G": 113,
+    "M": 110,
+    "C": 109
+  },
+  "metrics": {
+    "counts": {
+      "answers": 12,
+      "answer_errors": 0,
+      "G": 113,
+      "P": 110,
+      "M": 110,
+      "C": 109,
+      "unmatched_predictions": 0
+    },
+    "extraction": {
+      "precision": 1.0,
+      "recall": 0.9734513274336283,
+      "f1": 0.9865470852017937
+    },
+    "joint": {
+      "precision": 0.990909090909091,
+      "recall": 0.9646017699115044,
+      "f1": 0.9775784753363229
+    },
+    "gold_claim_coverage": 0.9646017699115044,
+    "per_label": {
+      "supported": {
+        "precision": 0.9736842105263158,
+        "recall": 1.0,
+        "f1": 0.9866666666666667,
+        "tp": 37,
+        "predicted": 38,
+        "actual": 37
+      },
+      "contradicted": {
+        "precision": 1.0,
+        "recall": 0.9142857142857143,
+        "f1": 0.9552238805970149,
+        "tp": 32,
+        "predicted": 32,
+        "actual": 35
+      },
+      "unknown": {
+        "precision": 1.0,
+        "recall": 0.975609756097561,
+        "f1": 0.9876543209876543,
+        "tp": 40,
+        "predicted": 40,
+        "actual": 41
+      }
+    },
+    "macro_f1": 0.9765149560837786,
+    "confusion_matrix": {
+      "supported": {
+        "supported": 37,
+        "contradicted": 0,
+        "unknown": 0,
+        "missing_or_error": 0
+      },
+      "contradicted": {
+        "supported": 1,
+        "contradicted": 32,
+        "unknown": 0,
+        "missing_or_error": 2
+      },
+      "unknown": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 40,
+        "missing_or_error": 1
+      },
+      "no_gold": {
+        "supported": 0,
+        "contradicted": 0,
+        "unknown": 0,
+        "missing_or_error": 0
+      }
+    },
+    "missed_gold_ids": [
+      "A04:2363:2540",
+      "A10:1462:1643",
+      "A10:1644:1821"
+    ],
+    "unmatched_prediction_ids": [],
+    "wrong_label_ids": [
+      "A09:492:655"
+    ],
+    "error_answer_ids": []
+  },
+  "development_records": {
+    "missed_gold": [
+      {
+        "claim_id": "A04:2363:2540",
+        "expected_label": "contradicted",
+        "quote": "In the 2025 India catalogue, before the current-year revision, StoneWave Max already carried the same tax-inclusive list price of INR 3,499, excluding shipping from that amount."
+      },
+      {
+        "claim_id": "A10:1462:1643",
+        "expected_label": "unknown",
+        "quote": "The official India catalogue price of CloudNote Air will drop by INR 300 during January 2027, with that future reduction applying before shipping to purchases from the brand itself."
+      },
+      {
+        "claim_id": "A10:1644:1821",
+        "expected_label": "contradicted",
+        "quote": "In the 2025 India catalogue, before the current-year revision, CloudNote Air already carried the same tax-inclusive list price of INR 1,499, excluding shipping from that amount."
+      }
+    ],
+    "extra_predictions": [],
+    "wrong_labels": [
+      {
+        "claim_id": "A09:492:655",
+        "expected_label": "contradicted",
+        "predicted_label": "supported",
+        "quote": "For a current India catalogue comparison before shipping, CloudNote Studio is INR 1,500 less expensive than CloudNote Air, with tax included in both listed prices.",
+        "reason": "Studio price 2999\u202fINR is exactly 1500\u202fINR less than Air price 1499\u202fINR.",
+        "fact_ids": [
+          "cloudnote.studio.price_2026",
+          "cloudnote.air.price_2026"
+        ]
+      }
+    ]
+  },
+  "answers": [
+    {
+      "answer_id": "A01",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 177145,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6051,
+        "output": 753,
+        "reasoning": 275,
+        "total": 6804
+      },
+      "trace_id": "8f9be9875054c1d85c29d5a424d0a8ad",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 9,
+        "predicted": 9,
+        "matched": 9,
+        "correct": 9,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A01:306:460",
+          "start_char": 306,
+          "end_char": 460,
+          "quote": "For the current India catalogue, ClearTrail Mini is listed at INR 1,200 less than ClearTrail Plus, comparing the two tax-inclusive prices before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.price_2026",
+            "cleartrail.plus.price_2026"
+          ],
+          "reason": "Prices match catalogue and difference is 1200 INR.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:461:647",
+          "start_char": 461,
+          "end_char": 647,
+          "quote": "For an authorized India purchase with the original invoice and a manufacturing defect, ClearTrail Mini receives a standard manufacturer warranty lasting 18 months from the purchase date.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.mini.warranty_india"
+          ],
+          "reason": "Catalogue states warranty is 12 months, not 18 months.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:649:832",
+          "start_char": 649,
+          "end_char": 832,
+          "quote": "An opened ClearTrail Mini can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue information on return policy.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:833:1040",
+          "start_char": 833,
+          "end_char": 1040,
+          "quote": "The sustained amplifier output of ClearTrail Mini is forty watts per channel during ordinary playback, which allows a direct loudness comparison with other speakers advertised using electrical power figures.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue data on amplifier output power.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:1237:1439",
+          "start_char": 1237,
+          "end_char": 1439,
+          "quote": "An authorized India service centre guarantees repair of ClearTrail Mini within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue data on repair turnaround time.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:1440:1619",
+          "start_char": 1440,
+          "end_char": 1619,
+          "quote": "The stated laboratory playback time for ClearTrail Mini, using a new battery with EQ off at one hundred percent volume, remains 12 hours without any reduction for louder playback.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.mini.battery_100_percent"
+          ],
+          "reason": "Catalogue lists 6 hours at 100% volume, not 12 hours.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:1620:1767",
+          "start_char": 1620,
+          "end_char": 1767,
+          "quote": "For an India purchase at the official catalogue list price on 1 October 2026, ClearTrail Mini costs INR 1,299 including tax but excluding shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.price_2026"
+          ],
+          "reason": "Price matches catalogue entry for 2026.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:1769:1942",
+          "start_char": 1769,
+          "end_char": 1942,
+          "quote": "The official India retail box for ClearTrail Mini includes a wall charging adapter, even though separate accessory lists may make the charging arrangement look less obvious.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.mini.adapter_included"
+          ],
+          "reason": "Catalogue indicates no wall adapter is included.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A01:1943:2104",
+          "start_char": 1943,
+          "end_char": 2104,
+          "quote": "The built-in Wi-Fi capability of ClearTrail Mini is absent, which should be treated as a separate specification from its ability to receive audio over Bluetooth.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.wifi"
+          ],
+          "reason": "Catalogue confirms Wi\u2011Fi capability is absent.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A01:306:460",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:461:647",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:649:832",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:833:1040",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:1237:1439",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:1440:1619",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:1620:1767",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:1769:1942",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A01:1943:2104",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 945,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cleartrail"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1385,
+            "output": 41,
+            "reasoning": 10,
+            "total": 1426
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cleartrail"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2240,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.price_2026\", \"cleartrail.plus.price_2026\"],\n      \"reason\": \"Prices match catalogue and difference is 1200 INR.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.warranty_india\"],\n      \"reason\": \"Catalogue states warranty is 12 months, not 18 months.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue information on return policy.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue data on amplifier output power.\"\n    },\n    {\n      \"sentence_id\": 9,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue data on repair turnaround time.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.battery_100_percent\"],\n      \"reason\": \"Catalogue lists 6 hours at 100% volume, not 12 hours.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.price_2026\"],\n      \"reason\": \"Price matches catalogue entry for 2026.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.adapter_included\"],\n      \"reason\": \"Catalogue indicates no wall adapter is included.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.wifi\"],\n      \"reason\": \"Catalogue confirms Wi\u2011Fi capability is absent.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4666,
+            "output": 712,
+            "reasoning": 265,
+            "total": 5378
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A02",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 229811,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6142,
+        "output": 860,
+        "reasoning": 314,
+        "total": 7002
+      },
+      "trace_id": "e5b28f9c578994a670c9efeea5f894c5",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 10,
+        "predicted": 10,
+        "matched": 10,
+        "correct": 10,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A02:306:506",
+          "start_char": 306,
+          "end_char": 506,
+          "quote": "Whatever conclusions a buyer draws from the water-resistance rating, water damage remains excluded from the standard India manufacturer warranty covering CloudNote Studio after an authorized purchase.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.water_damage_covered"
+          ],
+          "reason": "Warranty excludes water damage as fact indicates water damage not covered.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:507:689",
+          "start_char": 507,
+          "end_char": 689,
+          "quote": "The official India retail box for CloudNote Studio does not include a wall charging adapter, even though separate accessory lists may make the charging arrangement look less obvious.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.studio.adapter_included"
+          ],
+          "reason": "Fact shows a wall charging adapter is included, contrary to claim.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:691:875",
+          "start_char": 691,
+          "end_char": 875,
+          "quote": "An opened CloudNote Studio can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about return period or refund policy.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:876:1084",
+          "start_char": 876,
+          "end_char": 1084,
+          "quote": "The sustained amplifier output of CloudNote Studio is forty watts per channel during ordinary playback, which allows a direct loudness comparison with other speakers advertised using electrical power figures.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No fact about amplifier output power.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:1085:1272",
+          "start_char": 1085,
+          "end_char": 1272,
+          "quote": "CloudNote Studio supports the AAC Bluetooth audio codec on compatible phones, so its published Bluetooth version can be treated as evidence for that specific audio-compression capability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Codec support not provided in facts.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:1469:1659",
+          "start_char": 1469,
+          "end_char": 1659,
+          "quote": "In winter weather below freezing, CloudNote Studio delivers its full 18-hour laboratory battery duration at fifty percent volume, without the outdoor temperature changing the stated runtime.",
+          "label": "unknown",
+          "fact_ids": [
+            "cloudnote.studio.battery_50_percent"
+          ],
+          "reason": "Battery duration fact exists, but claim adds temperature condition not covered.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:1660:1813",
+          "start_char": 1660,
+          "end_char": 1813,
+          "quote": "For the current India catalogue, CloudNote Studio is listed at INR 1,500 more than CloudNote Air, comparing the two tax-inclusive prices before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.price_2026",
+            "cloudnote.air.price_2026"
+          ],
+          "reason": "Prices match and difference is exactly INR 1500.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:1815:2039",
+          "start_char": 1815,
+          "end_char": 2039,
+          "quote": "Water damage to CloudNote Studio is included in the standard India manufacturer warranty after an authorized purchase, because water resistance should be understood as warranty coverage rather than just a product capability.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.studio.water_damage_covered"
+          ],
+          "reason": "Fact states water damage is not covered, opposite of claim.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:2040:2223",
+          "start_char": 2040,
+          "end_char": 2223,
+          "quote": "The manufacturer supports a stereo pair made from one CloudNote Studio and one CloudNote Air, since being members of the same brand is sufficient for cross-model stereo compatibility.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.studio.stereo_pairing_scope"
+          ],
+          "reason": "Stereo pairing limited to same model; cross\u2011model pairing unsupported.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A02:2224:2372",
+          "start_char": 2224,
+          "end_char": 2372,
+          "quote": "For an India purchase at the official catalogue list price on 1 October 2026, CloudNote Studio costs INR 2,999 including tax but excluding shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.price_2026"
+          ],
+          "reason": "Price fact matches claimed INR 2,999 inclusive of tax, exclusive of shipping.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A02:306:506",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:507:689",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:691:875",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:876:1084",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:1085:1272",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:1469:1659",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:1660:1813",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:1815:2039",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:2040:2223",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A02:2224:2372",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 502,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cloudnote"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1428,
+            "output": 41,
+            "reasoning": 10,
+            "total": 1469
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cloudnote"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2490,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.water_damage_covered\"],\n      \"reason\": \"Warranty excludes water damage as fact indicates water damage not covered.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.adapter_included\"],\n      \"reason\": \"Fact shows a wall charging adapter is included, contrary to claim.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about return period or refund policy.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No fact about amplifier output power.\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Codec support not provided in facts.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"unknown\",\n      \"fact_ids\": [\"cloudnote.studio.battery_50_percent\"],\n      \"reason\": \"Battery duration fact exists, but claim adds temperature condition not covered.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.price_2026\", \"cloudnote.air.price_2026\"],\n      \"reason\": \"Prices match and difference is exactly INR 1500.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.water_damage_covered\"],\n      \"reason\": \"Fact states water damage is not covered, opposite of claim.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.stereo_pairing_scope\"],\n      \"reason\": \"Stereo pairing limited to same model; cross\u2011model pairing unsupported.\"\n    },\n    {\n      \"sentence_id\": 14,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.price_2026\"],\n      \"reason\": \"Price fact matches claimed INR 2,999 inclusive of tax, exclusive of shipping.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4714,
+            "output": 819,
+            "reasoning": 304,
+            "total": 5533
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A03",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 281709,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6070,
+        "output": 928,
+        "reasoning": 398,
+        "total": 6998
+      },
+      "trace_id": "20b15a477d03e96a09e1491bb05c2a4b",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 9,
+        "predicted": 9,
+        "matched": 9,
+        "correct": 9,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A03:335:505",
+          "start_char": 335,
+          "end_char": 505,
+          "quote": "Orders for CloudNote Air receive free delivery to every India postal code, so there is no separate shipping charge even when a customer selects a remote delivery address.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about free delivery or shipping charges.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:506:687",
+          "start_char": 506,
+          "end_char": 687,
+          "quote": "An opened CloudNote Air can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about return period or refund policy.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:689:861",
+          "start_char": 689,
+          "end_char": 861,
+          "quote": "The built-in microphone is included on CloudNote Air, so microphone availability should be checked for this exact model instead of copied from another speaker in the range.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.microphone"
+          ],
+          "reason": "Catalogue confirms built-in microphone is included.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:862:1043",
+          "start_char": 862,
+          "end_char": 1043,
+          "quote": "Considering the speaker alone and leaving retail packaging and accessories out of the measurement, CloudNote Air has a stated mass of 0.35 kilograms for carrying-weight comparisons.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.weight"
+          ],
+          "reason": "Weight listed as 350\u202fg equals 0.35\u202fkg.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:1240:1409",
+          "start_char": 1240,
+          "end_char": 1409,
+          "quote": "The built-in microphone is not included on CloudNote Air, without needing an accessory to change the hardware specification being described for this exact speaker model.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.air.microphone"
+          ],
+          "reason": "Catalogue states microphone is included, contradicting the claim it is not.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:1410:1563",
+          "start_char": 1410,
+          "end_char": 1563,
+          "quote": "For the current India catalogue, CloudNote Air is listed at INR 1,500 less than CloudNote Studio, comparing the two tax-inclusive prices before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.price_2026",
+            "cloudnote.studio.price_2026"
+          ],
+          "reason": "Air price 1499\u202fINR is exactly 1500\u202fINR less than Studio price 2999\u202fINR.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:1564:1742",
+          "start_char": 1564,
+          "end_char": 1742,
+          "quote": "When measuring just the speaker rather than the retail box and accessories, CloudNote Air weighs 1100 grams, matching the carrying-weight figure associated with CloudNote Studio.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.air.weight",
+            "cloudnote.studio.weight"
+          ],
+          "reason": "Air weight is 350\u202fg, not 1100\u202fg; the claim is false.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:1744:1917",
+          "start_char": 1744,
+          "end_char": 1917,
+          "quote": "Despite the declared IPX4 water-resistance rating, the manufacturer does not permit fresh-water immersion of CloudNote Air, even with all of the port covers properly closed.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.immersion_allowed"
+          ],
+          "reason": "Catalogue indicates fresh\u2011water immersion is not permitted (false).",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A03:1918:2069",
+          "start_char": 1918,
+          "end_char": 2069,
+          "quote": "For an India purchase at the official catalogue list price on 1 October 2026, CloudNote Air still costs INR 1,199 including tax but excluding shipping.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.air.price_2026"
+          ],
+          "reason": "Catalogue price for 2026 is 1499\u202fINR, not 1199\u202fINR.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A03:335:505",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:506:687",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:689:861",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:862:1043",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:1240:1409",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:1410:1563",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:1564:1742",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:1744:1917",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A03:1918:2069",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 630,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cloudnote"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1392,
+            "output": 44,
+            "reasoning": 13,
+            "total": 1436
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cloudnote"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2597,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about free delivery or shipping charges.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about return period or refund policy.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.microphone\"],\n      \"reason\": \"Catalogue confirms built-in microphone is included.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.weight\"],\n      \"reason\": \"Weight listed as 350\u202fg equals 0.35\u202fkg.\"\n    },\n    {\n      \"sentence_id\": 9,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.microphone\"],\n      \"reason\": \"Catalogue states microphone is included, contradicting the claim it is not.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.price_2026\", \"cloudnote.studio.price_2026\"],\n      \"reason\": \"Air price 1499\u202fINR is exactly 1500\u202fINR less than Studio price 2999\u202fINR.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.weight\", \"cloudnote.studio.weight\"],\n      \"reason\": \"Air weight is 350\u202fg, not 1100\u202fg; the claim is false.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.immersion_allowed\"],\n      \"reason\": \"Catalogue indicates fresh\u2011water immersion is not permitted (false).\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.price_2026\"],\n      \"reason\": \"Catalogue price for 2026 is 1499\u202fINR, not 1199\u202fINR.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4678,
+            "output": 884,
+            "reasoning": 385,
+            "total": 5562
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A04",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 334368,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6209,
+        "output": 1073,
+        "reasoning": 511,
+        "total": 7282
+      },
+      "trace_id": "818d6fc73246b713695955797091d4e1",
+      "scores": {
+        "extraction_f1": 0.9523809523809523,
+        "joint_f1": 0.9523809523809523,
+        "gold": 11,
+        "predicted": 10,
+        "matched": 10,
+        "correct": 10,
+        "missing_gold_ids": [
+          "A04:2363:2540"
+        ],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A04:324:493",
+          "start_char": 324,
+          "end_char": 493,
+          "quote": "The built-in microphone is not included on StoneWave Max, without needing an accessory to change the hardware specification being described for this exact speaker model.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.max.microphone"
+          ],
+          "reason": "Fact states microphone is built-in (true), but sentence says it is not included.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:494:694",
+          "start_char": 494,
+          "end_char": 694,
+          "quote": "An authorized India service centre guarantees repair of StoneWave Max within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about service centre repair time.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:696:899",
+          "start_char": 696,
+          "end_char": 899,
+          "quote": "A retail purchase of StoneWave Max in Germany qualifies for the same 18-month manufacturer warranty described for authorized India purchases, without any different regional terms affecting that duration.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No information on Germany warranty terms.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:900:1097",
+          "start_char": 900,
+          "end_char": 1097,
+          "quote": "Whatever conclusions a buyer draws from the water-resistance rating, water damage remains excluded from the standard India manufacturer warranty covering StoneWave Max after an authorized purchase.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.water_damage_covered"
+          ],
+          "reason": "Fact confirms water damage is not covered by the standard India warranty.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:1098:1267",
+          "start_char": 1098,
+          "end_char": 1267,
+          "quote": "The move from the 2025 India catalogue to the 2026 catalogue raised the tax-inclusive list price of StoneWave Max by INR 200, with shipping excluded in both comparisons.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.price_2025",
+            "stonewave.max.price_2026"
+          ],
+          "reason": "Prices match 2025 (3299 INR) and 2026 (3499 INR), a 200 INR increase.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:1464:1636",
+          "start_char": 1464,
+          "end_char": 1636,
+          "quote": "For wired digital audio specifically, the USB-C connector on StoneWave Max does provide an audio-input path, regardless of the fact that the connector also serves charging.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.usb_audio"
+          ],
+          "reason": "Fact indicates USB-C port provides wired digital audio.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:1637:1798",
+          "start_char": 1637,
+          "end_char": 1798,
+          "quote": "At fifty percent volume with EQ off and a new battery in the laboratory, StoneWave Max is rated for 1500 minutes of playback before recharging becomes necessary.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.max.battery_50_percent"
+          ],
+          "reason": "Fact gives 24 hours (1440 minutes) at 50% volume, not 1500 minutes.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:1800:1983",
+          "start_char": 1800,
+          "end_char": 1983,
+          "quote": "With all port covers closed, StoneWave Max is permitted to remain immersed in fresh water at a depth of one metre for a full hour under the manufacturer's stated laboratory allowance.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.max.immersion_depth",
+            "stonewave.max.immersion_duration"
+          ],
+          "reason": "Fact allows immersion at 1\u202fm depth for 30 minutes, not a full hour.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:1984:2165",
+          "start_char": 1984,
+          "end_char": 2165,
+          "quote": "An opened StoneWave Max can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about return period or refund policy.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A04:2166:2361",
+          "start_char": 2166,
+          "end_char": 2361,
+          "quote": "StoneWave Max accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No fact about simultaneous Bluetooth source connections.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A04:324:493",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:494:694",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:696:899",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:900:1097",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:1098:1267",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:1464:1636",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:1637:1798",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:1800:1983",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:1984:2165",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A04:2166:2361",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 587,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "stonewave"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1474,
+            "output": 55,
+            "reasoning": 24,
+            "total": 1529
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "stonewave"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2858,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.microphone\"],\n      \"reason\": \"Fact states microphone is built-in (true), but sentence says it is not included.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about service centre repair time.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No information on Germany warranty terms.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.water_damage_covered\"],\n      \"reason\": \"Fact confirms water damage is not covered by the standard India warranty.\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.price_2025\", \"stonewave.max.price_2026\"],\n      \"reason\": \"Prices match 2025 (3299 INR) and 2026 (3499 INR), a 200 INR increase.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.usb_audio\"],\n      \"reason\": \"Fact indicates USB-C port provides wired digital audio.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.battery_50_percent\"],\n      \"reason\": \"Fact gives 24 hours (1440 minutes) at 50% volume, not 1500 minutes.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.immersion_depth\", \"stonewave.max.immersion_duration\"],\n      \"reason\": \"Fact allows immersion at 1\u202fm depth for 30 minutes, not a full hour.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about return period or refund policy.\"\n    },\n    {\n      \"sentence_id\": 14,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No fact about simultaneous Bluetooth source connections.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4735,
+            "output": 1018,
+            "reasoning": 487,
+            "total": 5753
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A05",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 385027,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 5995,
+        "output": 814,
+        "reasoning": 378,
+        "total": 6809
+      },
+      "trace_id": "58dcea245ab85a1e9466dc5b6367be21",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 8,
+        "predicted": 8,
+        "matched": 8,
+        "correct": 8,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A05:371:531",
+          "start_char": 371,
+          "end_char": 531,
+          "quote": "At fifty percent volume with EQ off and a new battery in the laboratory, StoneWave Go is rated for 1020 minutes of playback before recharging becomes necessary.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.go.battery_50_percent"
+          ],
+          "reason": "Fact states 16 hours (960 minutes) at 50% volume, not 1020 minutes.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:532:697",
+          "start_char": 532,
+          "end_char": 697,
+          "quote": "The official India retail box for StoneWave Go does not contain a wall charging adapter, so the box contents should not be inferred just from the charging-port type.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.go.adapter_included"
+          ],
+          "reason": "Fact confirms no wall adapter is included in the official India box.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:699:890",
+          "start_char": 699,
+          "end_char": 890,
+          "quote": "The Bluetooth connection on StoneWave Go maintains uninterrupted playback at a distance of one hundred metres outdoors, even when a listener changes the phone used as the transmitting device.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about Bluetooth range for StoneWave Go.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:891:1095",
+          "start_char": 891,
+          "end_char": 1095,
+          "quote": "The sustained amplifier output of StoneWave Go is forty watts per channel during ordinary playback, which allows a direct loudness comparison with other speakers advertised using electrical power figures.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about amplifier output power.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:1292:1467",
+          "start_char": 1292,
+          "end_char": 1467,
+          "quote": "The built-in microphone is not included on StoneWave Go, so microphone availability should be checked for this exact model instead of copied from another speaker in the range.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.go.microphone"
+          ],
+          "reason": "Fact indicates the microphone is not present.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:1468:1651",
+          "start_char": 1468,
+          "end_char": 1651,
+          "quote": "Basic Bluetooth playback on StoneWave Go requires the manufacturer companion app to be installed first, rather than allowing a listener to pair a source and start playback without it.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.go.app_required_bluetooth"
+          ],
+          "reason": "Fact shows Bluetooth playback does not require the app, contrary to the claim.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:1652:1828",
+          "start_char": 1652,
+          "end_char": 1828,
+          "quote": "Using a twenty-watt wall adapter, a fully discharged StoneWave Go reaches a complete charge in ninety minutes, so a short charging stop is enough to restore the entire battery.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about charging time with a 20W adapter.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A05:1830:1980",
+          "start_char": 1830,
+          "end_char": 1980,
+          "quote": "For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Go still costs INR 1,799 including tax but excluding shipping.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.go.price_2026"
+          ],
+          "reason": "Fact lists price as INR 1999, not INR 1799.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A05:371:531",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:532:697",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:699:890",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:891:1095",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:1292:1467",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:1468:1651",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:1652:1828",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A05:1830:1980",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 617,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "stonewave"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1367,
+            "output": 40,
+            "reasoning": 13,
+            "total": 1407
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "stonewave"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2237,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.battery_50_percent\"],\n      \"reason\": \"Fact states 16 hours (960 minutes) at 50% volume, not 1020 minutes.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.adapter_included\"],\n      \"reason\": \"Fact confirms no wall adapter is included in the official India box.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about Bluetooth range for StoneWave Go.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about amplifier output power.\"\n    },\n    {\n      \"sentence_id\": 9,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.microphone\"],\n      \"reason\": \"Fact indicates the microphone is not present.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.app_required_bluetooth\"],\n      \"reason\": \"Fact shows Bluetooth playback does not require the app, contrary to the claim.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about charging time with a 20W adapter.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.price_2026\"],\n      \"reason\": \"Fact lists price as INR 1999, not INR 1799.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4628,
+            "output": 774,
+            "reasoning": 365,
+            "total": 5402
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A06",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 437955,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6153,
+        "output": 1041,
+        "reasoning": 446,
+        "total": 7194
+      },
+      "trace_id": "37c3c80b58e974111ab7cd44da95724c",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 10,
+        "predicted": 10,
+        "matched": 10,
+        "correct": 10,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A06:306:494",
+          "start_char": 306,
+          "end_char": 494,
+          "quote": "For wired digital audio specifically, the USB-C connector on ClearTrail Plus does not provide an audio-input path, so the connector can be treated accordingly when choosing a wired source.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.plus.usb_audio"
+          ],
+          "reason": "Catalogue states USB-C supports wired digital audio, contradicting the claim it does not provide an audio-input path.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:495:697",
+          "start_char": 495,
+          "end_char": 697,
+          "quote": "No version of ClearTrail Plus has ever been offered in blue, including previous-year retail stock and editions supplied only through independent authorized sellers rather than the official online store.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No colour information is provided in the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:699:897",
+          "start_char": 699,
+          "end_char": 897,
+          "quote": "The plastic used in the enclosure of ClearTrail Plus contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Recycled material content is not covered by the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:898:1081",
+          "start_char": 898,
+          "end_char": 1081,
+          "quote": "The official India catalogue price of ClearTrail Plus will drop by INR 300 during January 2027, with that future reduction applying before shipping to purchases from the brand itself.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Future price change in January 2027 is not present in the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:1082:1235",
+          "start_char": 1082,
+          "end_char": 1235,
+          "quote": "For an India purchase at the official catalogue list price on 1 October 2026, ClearTrail Plus still costs INR 2,199 including tax but excluding shipping.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.plus.price_2026"
+          ],
+          "reason": "Catalogue lists the 2026 India price as INR 2,499, not INR 2,199.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:1432:1621",
+          "start_char": 1432,
+          "end_char": 1621,
+          "quote": "In winter weather below freezing, ClearTrail Plus delivers its full 20-hour laboratory battery duration at fifty percent volume, without the outdoor temperature changing the stated runtime.",
+          "label": "unknown",
+          "fact_ids": [
+            "cleartrail.plus.battery_50_percent"
+          ],
+          "reason": "Battery runtime at 50% volume is 20\u202fh, but the catalogue does not address temperature effects.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:1622:1801",
+          "start_char": 1622,
+          "end_char": 1801,
+          "quote": "The stated laboratory playback time for ClearTrail Plus, using a new battery with EQ off at one hundred percent volume, remains 20 hours without any reduction for louder playback.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.plus.battery_100_percent"
+          ],
+          "reason": "Catalogue states 100% volume runtime is 10\u202fh, not 20\u202fh.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:1803:1957",
+          "start_char": 1803,
+          "end_char": 1957,
+          "quote": "For the current India catalogue, ClearTrail Plus is listed at INR 1,200 more than ClearTrail Mini, comparing the two tax-inclusive prices before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.plus.price_2026",
+            "cleartrail.mini.price_2026"
+          ],
+          "reason": "Plus price 2,499\u202fINR minus Mini price 1,299\u202fINR equals INR 1,200 difference.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:1958:2132",
+          "start_char": 1958,
+          "end_char": 2132,
+          "quote": "The built-in microphone is included on ClearTrail Plus, so microphone availability should be checked for this exact model instead of copied from another speaker in the range.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.plus.microphone"
+          ],
+          "reason": "Catalogue confirms Plus includes a built\u2011in microphone.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A06:2133:2356",
+          "start_char": 2133,
+          "end_char": 2356,
+          "quote": "Water damage to ClearTrail Plus is included in the standard India manufacturer warranty after an authorized purchase, because water resistance should be understood as warranty coverage rather than just a product capability.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.plus.water_damage_covered"
+          ],
+          "reason": "Catalogue indicates water damage is not covered under the standard India warranty.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A06:306:494",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:495:697",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:699:897",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:898:1081",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:1082:1235",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:1432:1621",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:1622:1801",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:1803:1957",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:1958:2132",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A06:2133:2356",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 670,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cleartrail"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1436,
+            "output": 41,
+            "reasoning": 10,
+            "total": 1477
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cleartrail"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2671,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.usb_audio\"],\n      \"reason\": \"Catalogue states USB-C supports wired digital audio, contradicting the claim it does not provide an audio-input path.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No colour information is provided in the catalogue.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Recycled material content is not covered by the catalogue.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Future price change in January 2027 is not present in the catalogue.\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.price_2026\"],\n      \"reason\": \"Catalogue lists the 2026 India price as INR 2,499, not INR 2,199.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"unknown\",\n      \"fact_ids\": [\"cleartrail.plus.battery_50_percent\"],\n      \"reason\": \"Battery runtime at 50% volume is 20\u202fh, but the catalogue does not address temperature effects.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.battery_100_percent\"],\n      \"reason\": \"Catalogue states 100% volume runtime is 10\u202fh, not 20\u202fh.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.plus.price_2026\", \"cleartrail.mini.price_2026\"],\n      \"reason\": \"Plus price 2,499\u202fINR minus Mini price 1,299\u202fINR equals INR 1,200 difference.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.plus.microphone\"],\n      \"reason\": \"Catalogue confirms Plus includes a built\u2011in microphone.\"\n    },\n    {\n      \"sentence_id\": 14,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.plus.water_damage_covered\"],\n      \"reason\": \"Catalogue indicates water damage is not covered under the standard India warranty.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4717,
+            "output": 1000,
+            "reasoning": 436,
+            "total": 5717
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A07",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 490074,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6039,
+        "output": 1017,
+        "reasoning": 529,
+        "total": 7056
+      },
+      "trace_id": "4c2f6a730962fdf0bc8f8aae5abdf22f",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 8,
+        "predicted": 8,
+        "matched": 8,
+        "correct": 8,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A07:306:511",
+          "start_char": 306,
+          "end_char": 511,
+          "quote": "A retail purchase of ClearTrail Plus in Germany qualifies for the same 12-month manufacturer warranty described for authorized India purchases, without any different regional terms affecting that duration.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue data about Germany warranty; only India warranty is known.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:512:698",
+          "start_char": 512,
+          "end_char": 698,
+          "quote": "ClearTrail Plus supports the AAC Bluetooth audio codec on compatible phones, so its published Bluetooth version can be treated as evidence for that specific audio-compression capability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Catalogue does not specify AAC codec support for ClearTrail Plus.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:700:884",
+          "start_char": 700,
+          "end_char": 884,
+          "quote": "The manufacturer supports a stereo pair made from one ClearTrail Plus and one ClearTrail Mini, since being members of the same brand is sufficient for cross-model stereo compatibility.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.plus.stereo_pairing_scope",
+            "cleartrail.mini.stereo_pairing_scope"
+          ],
+          "reason": "Both models support stereo pairing only with the same model, not cross\u2011model.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:987:1153",
+          "start_char": 987,
+          "end_char": 1153,
+          "quote": "With all port covers closed, the laboratory immersion allowance for ClearTrail Plus is limited to fresh water at no more than one metre for no more than half an hour.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.plus.immersion_allowed",
+            "cleartrail.plus.immersion_depth",
+            "cleartrail.plus.immersion_duration"
+          ],
+          "reason": "Facts confirm immersion up to 1\u202fm for 30\u202fmin with ports closed.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:1350:1533",
+          "start_char": 1350,
+          "end_char": 1533,
+          "quote": "Considering the speaker alone and leaving retail packaging and accessories out of the measurement, ClearTrail Plus has a stated mass of 0.58 kilograms for carrying-weight comparisons.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.plus.weight"
+          ],
+          "reason": "Weight is 580\u202fg, which equals 0.58\u202fkg as stated.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:1534:1719",
+          "start_char": 1534,
+          "end_char": 1719,
+          "quote": "Basic Bluetooth listening on ClearTrail Plus does not require the manufacturer companion app to be installed, even if a buyer is interested in optional app-related features or settings.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.plus.app_required_bluetooth"
+          ],
+          "reason": "Basic Bluetooth does not require the companion app.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:1721:1919",
+          "start_char": 1721,
+          "end_char": 1919,
+          "quote": "The plastic used in the enclosure of ClearTrail Plus contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue information on recycled material content.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A07:1920:2143",
+          "start_char": 1920,
+          "end_char": 2143,
+          "quote": "Water damage to ClearTrail Plus is included in the standard India manufacturer warranty after an authorized purchase, because water resistance should be understood as warranty coverage rather than just a product capability.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.plus.water_damage_covered"
+          ],
+          "reason": "Warranty explicitly does not cover water damage.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A07:306:511",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:512:698",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:700:884",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:987:1153",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:1350:1533",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:1534:1719",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:1721:1919",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A07:1920:2143",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 651,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cleartrail"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1379,
+            "output": 41,
+            "reasoning": 10,
+            "total": 1420
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cleartrail"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2759,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue data about Germany warranty; only India warranty is known.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Catalogue does not specify AAC codec support for ClearTrail Plus.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\n        \"cleartrail.plus.stereo_pairing_scope\",\n        \"cleartrail.mini.stereo_pairing_scope\"\n      ],\n      \"reason\": \"Both models support stereo pairing only with the same model, not cross\u2011model.\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"supported\",\n      \"fact_ids\": [\n        \"cleartrail.plus.immersion_allowed\",\n        \"cleartrail.plus.immersion_depth\",\n        \"cleartrail.plus.immersion_duration\"\n      ],\n      \"reason\": \"Facts confirm immersion up to 1\u202fm for 30\u202fmin with ports closed.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"supported\",\n      \"fact_ids\": [\n        \"cleartrail.plus.weight\"\n      ],\n      \"reason\": \"Weight is 580\u202fg, which equals 0.58\u202fkg as stated.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"supported\",\n      \"fact_ids\": [\n        \"cleartrail.plus.app_required_bluetooth\"\n      ],\n      \"reason\": \"Basic Bluetooth does not require the companion app.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue information on recycled material content.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\n        \"cleartrail.plus.water_damage_covered\"\n      ],\n      \"reason\": \"Warranty explicitly does not cover water damage.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4660,
+            "output": 976,
+            "reasoning": 519,
+            "total": 5636
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A08",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 542330,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6117,
+        "output": 855,
+        "reasoning": 344,
+        "total": 6972
+      },
+      "trace_id": "e3e1bdafbecf218ef8b54b1a30c81a41",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 10,
+        "predicted": 10,
+        "matched": 10,
+        "correct": 10,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A08:335:525",
+          "start_char": 335,
+          "end_char": 525,
+          "quote": "Even when other warranty conditions are met for an authorized India purchase, the original purchase invoice is still required to claim the standard manufacturer warranty for ClearTrail Mini.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.warranty_invoice_required"
+          ],
+          "reason": "Catalogue states original invoice is required for warranty.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:526:685",
+          "start_char": 526,
+          "end_char": 685,
+          "quote": "The built-in Wi-Fi capability of ClearTrail Mini is present, independently of whatever Bluetooth connection a listener might also choose for everyday playback.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.mini.wifi"
+          ],
+          "reason": "Catalogue indicates Wi\u2011Fi is not present.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:687:889",
+          "start_char": 687,
+          "end_char": 889,
+          "quote": "An authorized India service centre guarantees repair of ClearTrail Mini within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about repair turnaround time.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:890:1083",
+          "start_char": 890,
+          "end_char": 1083,
+          "quote": "The manufacturer permits stereo pairing only between two units of the exact ClearTrail Mini model, rather than treating every speaker sharing the same brand name as a compatible stereo partner.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.stereo_pairing_scope"
+          ],
+          "reason": "Stereo pairing is limited to the same model only.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:1084:1282",
+          "start_char": 1084,
+          "end_char": 1282,
+          "quote": "The plastic used in the enclosure of ClearTrail Mini contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No information on recycled\u2011material content.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:1479:1676",
+          "start_char": 1479,
+          "end_char": 1676,
+          "quote": "ClearTrail Mini accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Catalogue does not specify multi\u2011source Bluetooth support.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:1677:1855",
+          "start_char": 1677,
+          "end_char": 1855,
+          "quote": "For wired digital audio specifically, the USB-C connector on ClearTrail Mini does not provide an audio-input path, regardless of the fact that the connector also serves charging.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.usb_audio"
+          ],
+          "reason": "USB\u2011C port does not provide an audio\u2011input path.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:1857:2036",
+          "start_char": 1857,
+          "end_char": 2036,
+          "quote": "An original invoice is unnecessary when claiming the standard India manufacturer warranty for ClearTrail Mini, provided the buyer says the purchase came from an authorized seller.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cleartrail.mini.warranty_invoice_required"
+          ],
+          "reason": "Invoice is required for warranty, contrary to the claim.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:2037:2200",
+          "start_char": 2037,
+          "end_char": 2200,
+          "quote": "Looking back specifically at the 2025 India catalogue rather than the current offer, the listed tax-inclusive price of ClearTrail Mini was INR 999 before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cleartrail.mini.price_2025"
+          ],
+          "reason": "2025 catalogue lists price INR\u202f999 tax\u2011inclusive, shipping excluded.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A08:2201:2395",
+          "start_char": 2201,
+          "end_char": 2395,
+          "quote": "The normal manufacturing origin of ClearTrail Mini is India, even when the unit is purchased through an authorized seller rather than ordered directly from the manufacturer's own retail channel.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Manufacturing origin is not provided in the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A08:335:525",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:526:685",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:687:889",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:890:1083",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:1084:1282",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:1479:1676",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:1677:1855",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:1857:2036",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:2037:2200",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A08:2201:2395",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 438,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cleartrail"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1418,
+            "output": 41,
+            "reasoning": 10,
+            "total": 1459
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cleartrail"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2468,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.warranty_invoice_required\"],\n      \"reason\": \"Catalogue states original invoice is required for warranty.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.wifi\"],\n      \"reason\": \"Catalogue indicates Wi\u2011Fi is not present.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.stereo_pairing_scope\"],\n      \"reason\": \"Stereo pairing is limited to the same model only.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.usb_audio\"],\n      \"reason\": \"USB\u2011C port does not provide an audio\u2011input path.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cleartrail.mini.warranty_invoice_required\"],\n      \"reason\": \"Invoice is required for warranty, contrary to the claim.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cleartrail.mini.price_2025\"],\n      \"reason\": \"2025 catalogue lists price INR\u202f999 tax\u2011inclusive, shipping excluded.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about repair turnaround time.\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No information on recycled\u2011material content.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Catalogue does not specify multi\u2011source Bluetooth support.\"\n    },\n    {\n      \"sentence_id\": 14,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Manufacturing origin is not provided in the catalogue.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4699,
+            "output": 814,
+            "reasoning": 334,
+            "total": 5513
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A09",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 594508,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6082,
+        "output": 920,
+        "reasoning": 360,
+        "total": 7002
+      },
+      "trace_id": "5bbcb4a5fe7468c1d56695a1170c18c8",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 0.8888888888888888,
+        "gold": 9,
+        "predicted": 9,
+        "matched": 9,
+        "correct": 8,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": [
+          {
+            "claim_id": "A09:492:655",
+            "expected": "contradicted",
+            "predicted": "supported"
+          }
+        ]
+      },
+      "claims": [
+        {
+          "claim_id": "A09:324:491",
+          "start_char": 324,
+          "end_char": 491,
+          "quote": "With all port covers closed, the laboratory immersion allowance for CloudNote Studio is limited to fresh water at no more than one metre for no more than half an hour.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.immersion_allowed",
+            "cloudnote.studio.immersion_depth",
+            "cloudnote.studio.immersion_duration"
+          ],
+          "reason": "Facts confirm immersion allowed up to 1\u202fm for 30\u202fmin in fresh water.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:492:655",
+          "start_char": 492,
+          "end_char": 655,
+          "quote": "For a current India catalogue comparison before shipping, CloudNote Studio is INR 1,500 less expensive than CloudNote Air, with tax included in both listed prices.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.price_2026",
+            "cloudnote.air.price_2026"
+          ],
+          "reason": "Studio price 2999\u202fINR is exactly 1500\u202fINR less than Air price 1499\u202fINR.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": false
+        },
+        {
+          "claim_id": "A09:657:844",
+          "start_char": 657,
+          "end_char": 844,
+          "quote": "CloudNote Studio supports the AAC Bluetooth audio codec on compatible phones, so its published Bluetooth version can be treated as evidence for that specific audio-compression capability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about AAC Bluetooth codec support.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:845:1048",
+          "start_char": 845,
+          "end_char": 1048,
+          "quote": "An authorized India service centre guarantees repair of CloudNote Studio within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Repair time guarantee not covered by catalogue facts.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:1245:1430",
+          "start_char": 1245,
+          "end_char": 1430,
+          "quote": "With a new battery, EQ disabled and volume held at fifty percent in the laboratory, CloudNote Studio has a stated playback duration of 1080 minutes under those specific test conditions.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.battery_50_percent"
+          ],
+          "reason": "Battery spec gives 18\u202fhours = 1080\u202fminutes under the stated test conditions.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:1431:1614",
+          "start_char": 1431,
+          "end_char": 1614,
+          "quote": "The manufacturer supports a stereo pair made from one CloudNote Studio and one CloudNote Air, since being members of the same brand is sufficient for cross-model stereo compatibility.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.studio.stereo_pairing_scope",
+            "cloudnote.air.stereo_pairing_scope"
+          ],
+          "reason": "Stereo pairing is limited to same\u2011model units; cross\u2011model pairing is unsupported.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:1615:1781",
+          "start_char": 1615,
+          "end_char": 1781,
+          "quote": "Looking back specifically at the 2025 India catalogue rather than the current offer, the listed tax-inclusive price of CloudNote Studio was INR 2,799 before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.studio.price_2025"
+          ],
+          "reason": "2025 catalogue lists Studio price as 2799\u202fINR tax\u2011included.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:1783:1963",
+          "start_char": 1783,
+          "end_char": 1963,
+          "quote": "An original invoice is unnecessary when claiming the standard India manufacturer warranty for CloudNote Studio, provided the buyer says the purchase came from an authorized seller.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.studio.warranty_invoice_required"
+          ],
+          "reason": "Warranty requires the original invoice; claim says invoice unnecessary.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A09:1964:2148",
+          "start_char": 1964,
+          "end_char": 2148,
+          "quote": "An opened CloudNote Studio can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Return\u2011policy details are not present in the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A09:324:491",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:492:655",
+          "expected": "contradicted",
+          "predicted": "supported",
+          "correct": false
+        },
+        {
+          "claim_id": "A09:657:844",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:845:1048",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:1245:1430",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:1431:1614",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:1615:1781",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:1783:1963",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A09:1964:2148",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 556,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cloudnote"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1398,
+            "output": 44,
+            "reasoning": 13,
+            "total": 1442
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cloudnote"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2687,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.immersion_allowed\", \"cloudnote.studio.immersion_depth\", \"cloudnote.studio.immersion_duration\"],\n      \"reason\": \"Facts confirm immersion allowed up to 1\u202fm for 30\u202fmin in fresh water.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.price_2026\", \"cloudnote.air.price_2026\"],\n      \"reason\": \"Studio price 2999\u202fINR is exactly 1500\u202fINR less than Air price 1499\u202fINR.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about AAC Bluetooth codec support.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Repair time guarantee not covered by catalogue facts.\"\n    },\n    {\n      \"sentence_id\": 9,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.battery_50_percent\"],\n      \"reason\": \"Battery spec gives 18\u202fhours = 1080\u202fminutes under the stated test conditions.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.stereo_pairing_scope\", \"cloudnote.air.stereo_pairing_scope\"],\n      \"reason\": \"Stereo pairing is limited to same\u2011model units; cross\u2011model pairing is unsupported.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.studio.price_2025\"],\n      \"reason\": \"2025 catalogue lists Studio price as 2799\u202fINR tax\u2011included.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.studio.warranty_invoice_required\"],\n      \"reason\": \"Warranty requires the original invoice; claim says invoice unnecessary.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Return\u2011policy details are not present in the catalogue.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4684,
+            "output": 876,
+            "reasoning": 347,
+            "total": 5560
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A10",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 646496,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6166,
+        "output": 737,
+        "reasoning": 297,
+        "cached_input": 768,
+        "total": 6903
+      },
+      "trace_id": "ec64562bfc52ff999b700e6aa7b86e39",
+      "scores": {
+        "extraction_f1": 0.8888888888888888,
+        "joint_f1": 0.8888888888888888,
+        "gold": 10,
+        "predicted": 8,
+        "matched": 8,
+        "correct": 8,
+        "missing_gold_ids": [
+          "A10:1462:1643",
+          "A10:1644:1821"
+        ],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A10:371:563",
+          "start_char": 371,
+          "end_char": 563,
+          "quote": "The normal manufacturing origin of CloudNote Air is India, even when the unit is purchased through an authorized seller rather than ordered directly from the manufacturer's own retail channel.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about manufacturing origin.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:564:733",
+          "start_char": 564,
+          "end_char": 733,
+          "quote": "The move from the 2025 India catalogue to the 2026 catalogue raised the tax-inclusive list price of CloudNote Air by INR 300, with shipping excluded in both comparisons.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.price_2025",
+            "cloudnote.air.price_2026"
+          ],
+          "reason": "2025 price 1199 INR, 2026 price 1499 INR, increase of 300 INR matches claim.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:735:923",
+          "start_char": 735,
+          "end_char": 923,
+          "quote": "Even when other warranty conditions are met for an authorized India purchase, the original purchase invoice is still required to claim the standard manufacturer warranty for CloudNote Air.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.warranty_invoice_required"
+          ],
+          "reason": "Catalogue states original invoice is required for standard warranty.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:924:1087",
+          "start_char": 924,
+          "end_char": 1087,
+          "quote": "Looking back specifically at the 2025 India catalogue rather than the current offer, the listed tax-inclusive price of CloudNote Air was INR 1,199 before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "cloudnote.air.price_2025"
+          ],
+          "reason": "2025 India catalogue lists tax\u2011inclusive price of 1199 INR.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:1088:1265",
+          "start_char": 1088,
+          "end_char": 1265,
+          "quote": "An original invoice is unnecessary when claiming the standard India manufacturer warranty for CloudNote Air, provided the buyer says the purchase came from an authorized seller.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.air.warranty_invoice_required"
+          ],
+          "reason": "Catalogue requires invoice; claim says invoice unnecessary.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:1823:2004",
+          "start_char": 1823,
+          "end_char": 2004,
+          "quote": "An opened CloudNote Air can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No return\u2011policy fact in catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:2005:2200",
+          "start_char": 2005,
+          "end_char": 2200,
+          "quote": "CloudNote Air accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Catalogue does not specify multi\u2011source Bluetooth behavior.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A10:2201:2372",
+          "start_char": 2201,
+          "end_char": 2372,
+          "quote": "The official India retail box for CloudNote Air includes a wall charging adapter, even though separate accessory lists may make the charging arrangement look less obvious.",
+          "label": "contradicted",
+          "fact_ids": [
+            "cloudnote.air.adapter_included"
+          ],
+          "reason": "Catalogue indicates no wall adapter is included, contrary to claim.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A10:371:563",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:564:733",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:735:923",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:924:1087",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:1088:1265",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:1823:2004",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:2005:2200",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A10:2201:2372",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 415,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "cloudnote"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1440,
+            "output": 44,
+            "reasoning": 13,
+            "cached_input": 768,
+            "total": 1484
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "cloudnote"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2214,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about manufacturing origin.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.price_2025\", \"cloudnote.air.price_2026\"],\n      \"reason\": \"2025 price 1199 INR, 2026 price 1499 INR, increase of 300 INR matches claim.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.warranty_invoice_required\"],\n      \"reason\": \"Catalogue states original invoice is required for standard warranty.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"cloudnote.air.price_2025\"],\n      \"reason\": \"2025 India catalogue lists tax\u2011inclusive price of 1199 INR.\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.warranty_invoice_required\"],\n      \"reason\": \"Catalogue requires invoice; claim says invoice unnecessary.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No return\u2011policy fact in catalogue.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Catalogue does not specify multi\u2011source Bluetooth behavior.\"\n    },\n    {\n      \"sentence_id\": 14,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"cloudnote.air.adapter_included\"],\n      \"reason\": \"Catalogue indicates no wall adapter is included, contrary to claim.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4726,
+            "output": 693,
+            "reasoning": 284,
+            "total": 5419
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A11",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 698951,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6119,
+        "output": 1103,
+        "reasoning": 579,
+        "cached_input": 768,
+        "total": 7222
+      },
+      "trace_id": "d5b7138e8e34e4dded4362b4176ba3d3",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 10,
+        "predicted": 10,
+        "matched": 10,
+        "correct": 10,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A11:306:483",
+          "start_char": 306,
+          "end_char": 483,
+          "quote": "In the 2025 India catalogue, before the current-year revision, StoneWave Max already carried the same tax-inclusive list price of INR 3,499, excluding shipping from that amount.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.max.price_2025"
+          ],
+          "reason": "2025 price is INR 3299, not INR 3499",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:484:653",
+          "start_char": 484,
+          "end_char": 653,
+          "quote": "The built-in microphone is not included on StoneWave Max, without needing an accessory to change the hardware specification being described for this exact speaker model.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.max.microphone"
+          ],
+          "reason": "Microphone is included, not excluded",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:655:855",
+          "start_char": 655,
+          "end_char": 855,
+          "quote": "An authorized India service centre guarantees repair of StoneWave Max within two working days after receiving the unit and the required purchase paperwork, regardless of replacement-part availability.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about repair time guarantee",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:856:1026",
+          "start_char": 856,
+          "end_char": 1026,
+          "quote": "Orders for StoneWave Max receive free delivery to every India postal code, so there is no separate shipping charge even when a customer selects a remote delivery address.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue fact about free delivery",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:1027:1172",
+          "start_char": 1027,
+          "end_char": 1172,
+          "quote": "For an India purchase at the official catalogue list price on 1 October 2026, StoneWave Max costs INR 3,499 including tax but excluding shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.price_2026"
+          ],
+          "reason": "2026 price matches INR 3,499 tax\u2011included, shipping excluded",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:1369:1532",
+          "start_char": 1369,
+          "end_char": 1532,
+          "quote": "Looking back specifically at the 2025 India catalogue rather than the current offer, the listed tax-inclusive price of StoneWave Max was INR 3,299 before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.price_2025"
+          ],
+          "reason": "2025 price matches INR 3,299 tax\u2011included",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:1533:1697",
+          "start_char": 1533,
+          "end_char": 1697,
+          "quote": "With all port covers closed, the laboratory immersion allowance for StoneWave Max is limited to fresh water at no more than one metre for no more than half an hour.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.immersion_allowed",
+            "stonewave.max.immersion_depth",
+            "stonewave.max.immersion_duration"
+          ],
+          "reason": "Immersion allowed up to 1\u202fm for 30\u202fmin with ports closed",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:1699:1895",
+          "start_char": 1699,
+          "end_char": 1895,
+          "quote": "The plastic used in the enclosure of StoneWave Max contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No fact about recycled material content",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:1896:2091",
+          "start_char": 1896,
+          "end_char": 2091,
+          "quote": "StoneWave Max accepts two active Bluetooth source connections at the same time and switches between them automatically, without asking the listener to disconnect one phone before using the other.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No fact about simultaneous Bluetooth connections",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A11:2092:2264",
+          "start_char": 2092,
+          "end_char": 2264,
+          "quote": "The built-in microphone is included on StoneWave Max, so microphone availability should be checked for this exact model instead of copied from another speaker in the range.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.max.microphone"
+          ],
+          "reason": "Microphone is included per catalogue",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A11:306:483",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:484:653",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:655:855",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:856:1026",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:1027:1172",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:1369:1532",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:1533:1697",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:1699:1895",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:1896:2091",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A11:2092:2264",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 584,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "stonewave"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1429,
+            "output": 44,
+            "reasoning": 13,
+            "cached_input": 768,
+            "total": 1473
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "stonewave"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2840,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.price_2025\"],\n      \"reason\": \"2025 price is INR 3299, not INR 3499\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.max.microphone\"],\n      \"reason\": \"Microphone is included, not excluded\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about repair time guarantee\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue fact about free delivery\"\n    },\n    {\n      \"sentence_id\": 8,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.price_2026\"],\n      \"reason\": \"2026 price matches INR 3,499 tax\u2011included, shipping excluded\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.price_2025\"],\n      \"reason\": \"2025 price matches INR 3,299 tax\u2011included\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.immersion_allowed\", \"stonewave.max.immersion_depth\", \"stonewave.max.immersion_duration\"],\n      \"reason\": \"Immersion allowed up to 1\u202fm for 30\u202fmin with ports closed\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No fact about recycled material content\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No fact about simultaneous Bluetooth connections\"\n    },\n    {\n      \"sentence_id\": 14,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.max.microphone\"],\n      \"reason\": \"Microphone is included per catalogue\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4690,
+            "output": 1059,
+            "reasoning": 566,
+            "total": 5749
+          }
+        }
+      ]
+    },
+    {
+      "answer_id": "A12",
+      "status": "ok",
+      "error_type": null,
+      "error_message": null,
+      "latency_ms": 750234,
+      "model_turns": 2,
+      "provider_attempts": 2,
+      "usage": {
+        "input": 6051,
+        "output": 839,
+        "reasoning": 321,
+        "total": 6890,
+        "cached_input": 768
+      },
+      "trace_id": "8a83873e4dfb6163ac1a29cbe15f329e",
+      "scores": {
+        "extraction_f1": 1.0,
+        "joint_f1": 1.0,
+        "gold": 9,
+        "predicted": 9,
+        "matched": 9,
+        "correct": 9,
+        "missing_gold_ids": [],
+        "extra_claim_ids": [],
+        "wrong_label": []
+      },
+      "claims": [
+        {
+          "claim_id": "A12:335:515",
+          "start_char": 335,
+          "end_char": 515,
+          "quote": "The official India catalogue price of StoneWave Go will drop by INR 300 during January 2027, with that future reduction applying before shipping to purchases from the brand itself.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No catalogue data about a future price drop in January 2027.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:516:674",
+          "start_char": 516,
+          "end_char": 674,
+          "quote": "The built-in Wi-Fi capability of StoneWave Go is absent, which should be treated as a separate specification from its ability to receive audio over Bluetooth.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.go.wifi"
+          ],
+          "reason": "Catalogue states Wi\u2011Fi is false for StoneWave Go.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:676:871",
+          "start_char": 676,
+          "end_char": 871,
+          "quote": "The plastic used in the enclosure of StoneWave Go contains at least sixty percent post-consumer recycled material by weight, excluding the electronic components and the external retail packaging.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "No information on recycled material content in the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:872:1032",
+          "start_char": 872,
+          "end_char": 1032,
+          "quote": "At fifty percent volume with EQ off and a new battery in the laboratory, StoneWave Go is rated for 1020 minutes of playback before recharging becomes necessary.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.go.battery_50_percent"
+          ],
+          "reason": "Catalogue gives 16\u202fhours (960\u202fminutes) at 50\u202f% volume, not 1020\u202fminutes.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:1229:1378",
+          "start_char": 1229,
+          "end_char": 1378,
+          "quote": "For the current India catalogue, StoneWave Go is listed at INR 1,500 less than StoneWave Max, comparing the two tax-inclusive prices before shipping.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.go.price_2026",
+            "stonewave.max.price_2026"
+          ],
+          "reason": "Prices are INR\u202f1999 for Go and INR\u202f3499 for Max, a difference of INR\u202f1500.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:1379:1559",
+          "start_char": 1379,
+          "end_char": 1559,
+          "quote": "An opened StoneWave Go can be returned to any authorized India seller within thirty days for a full refund, even when the speaker has no manufacturing defect or functional problem.",
+          "label": "unknown",
+          "fact_ids": [],
+          "reason": "Return\u2011policy details are not present in the catalogue.",
+          "matched_gold": true,
+          "expected_label": "unknown",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:1560:1741",
+          "start_char": 1560,
+          "end_char": 1741,
+          "quote": "For wired digital audio specifically, the USB-C connector on StoneWave Go does provide an audio-input path, so the connector can be treated accordingly when choosing a wired source.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.go.usb_audio"
+          ],
+          "reason": "Catalogue states the USB\u2011C port does not provide an audio\u2011input path.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:1743:1916",
+          "start_char": 1743,
+          "end_char": 1916,
+          "quote": "When measuring just the speaker rather than the retail box and accessories, StoneWave Go weighs 900 grams, matching the carrying-weight figure associated with StoneWave Max.",
+          "label": "contradicted",
+          "fact_ids": [
+            "stonewave.go.weight"
+          ],
+          "reason": "Catalogue lists StoneWave Go weight as 440\u202fg, not 900\u202fg.",
+          "matched_gold": true,
+          "expected_label": "contradicted",
+          "label_correct": true
+        },
+        {
+          "claim_id": "A12:1917:2113",
+          "start_char": 1917,
+          "end_char": 2113,
+          "quote": "Whatever conclusions a buyer draws from the water-resistance rating, water damage remains excluded from the standard India manufacturer warranty covering StoneWave Go after an authorized purchase.",
+          "label": "supported",
+          "fact_ids": [
+            "stonewave.go.water_damage_covered"
+          ],
+          "reason": "Catalogue indicates water damage is not covered by the standard warranty.",
+          "matched_gold": true,
+          "expected_label": "supported",
+          "label_correct": true
+        }
+      ],
+      "label_results": [
+        {
+          "claim_id": "A12:335:515",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:516:674",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:676:871",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:872:1032",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:1229:1378",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:1379:1559",
+          "expected": "unknown",
+          "predicted": "unknown",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:1560:1741",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:1743:1916",
+          "expected": "contradicted",
+          "predicted": "contradicted",
+          "correct": true
+        },
+        {
+          "claim_id": "A12:1917:2113",
+          "expected": "supported",
+          "predicted": "supported",
+          "correct": true
+        }
+      ],
+      "exchanges": [
+        {
+          "turn": 1,
+          "mode": "tools",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 468,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [
+              {
+                "name": "get_brand_facts",
+                "args": {
+                  "brand_id": "stonewave"
+                }
+              }
+            ],
+            "text": null,
+            "finish_reason": "tool_calls"
+          },
+          "usage": {
+            "input": 1395,
+            "output": 40,
+            "reasoning": 13,
+            "total": 1435
+          }
+        },
+        {
+          "tool_calls": [
+            {
+              "tool": "get_brand_facts",
+              "args": {
+                "brand_id": "stonewave"
+              },
+              "fact_count": 44
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "mode": "final",
+          "attempts": [
+            {
+              "attempt": 1,
+              "outcome": "ok",
+              "latency_ms": 2611,
+              "error_kind": null
+            }
+          ],
+          "response": {
+            "tool_calls": [],
+            "text": "{\n  \"claims\": [\n    {\n      \"sentence_id\": 4,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No catalogue data about a future price drop in January 2027.\"\n    },\n    {\n      \"sentence_id\": 5,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.wifi\"],\n      \"reason\": \"Catalogue states Wi\u2011Fi is false for StoneWave Go.\"\n    },\n    {\n      \"sentence_id\": 6,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"No information on recycled material content in the catalogue.\"\n    },\n    {\n      \"sentence_id\": 7,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.battery_50_percent\"],\n      \"reason\": \"Catalogue gives 16\u202fhours (960\u202fminutes) at 50\u202f% volume, not 1020\u202fminutes.\"\n    },\n    {\n      \"sentence_id\": 9,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.price_2026\", \"stonewave.max.price_2026\"],\n      \"reason\": \"Prices are INR\u202f1999 for Go and INR\u202f3499 for Max, a difference of INR\u202f1500.\"\n    },\n    {\n      \"sentence_id\": 10,\n      \"label\": \"unknown\",\n      \"fact_ids\": [],\n      \"reason\": \"Return\u2011policy details are not present in the catalogue.\"\n    },\n    {\n      \"sentence_id\": 11,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.usb_audio\"],\n      \"reason\": \"Catalogue states the USB\u2011C port does not provide an audio\u2011input path.\"\n    },\n    {\n      \"sentence_id\": 12,\n      \"label\": \"contradicted\",\n      \"fact_ids\": [\"stonewave.go.weight\"],\n      \"reason\": \"Catalogue lists StoneWave Go weight as 440\u202fg, not 900\u202fg.\"\n    },\n    {\n      \"sentence_id\": 13,\n      \"label\": \"supported\",\n      \"fact_ids\": [\"stonewave.go.water_damage_covered\"],\n      \"reason\": \"Catalogue indicates water damage is not covered by the standard warranty.\"\n    }\n  ]\n}",
+            "finish_reason": "stop"
+          },
+          "usage": {
+            "input": 4656,
+            "output": 799,
+            "reasoning": 308,
+            "cached_input": 768,
+            "total": 5455
+          }
+        }
+      ]
+    }
+  ],
+  "status": "completed",
+  "run_error": null,
+  "persistence_errors": [],
+  "report_path": "/Users/apple/Desktop/Pproject/FactCheck/runs/20261019T094100_v2_development_subset_ff623e7c"
+}

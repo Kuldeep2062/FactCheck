@@ -1,0 +1,37 @@
+[project]
+name = "factcheck"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Kuldeep Singh", email = "kuldeep.singh@getclevrr.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "asyncpg>=0.32.0",
+    "fastapi>=0.146.0",
+    "google-genai>=2.31.0",
+    "langfuse>=5.0.2",
+    "langgraph>=1.2.16",
+    "pydantic>=2.14.1",
+    "python-dotenv>=1.2.4",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[project.scripts]
+factcheck = "factcheck.cli:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
